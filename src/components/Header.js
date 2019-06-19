@@ -2,8 +2,20 @@ import React, { Component } from 'react';
 import './Header.css';
 import Button from './Button';
 import logo from '../img/logo.png';
+import Modal from './Modal';
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { isOpen: false };
+  }
+
+  toggleModal = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
   render() {
     return (
       <header>
@@ -17,7 +29,10 @@ class Header extends Component {
             </a>
           </div>
           <div className='navRight'>
-            <Button buttonStyle='small' buttonLabel='Install' />
+            {/* <Button buttonStyle='small' buttonLabel='Install' /> */}
+          <button className='small button' onClick={this.toggleModal}>Install</button>
+          <Modal show={this.state.isOpen}
+            onClose={this.toggleModal}>Email Tracker</Modal>
           </div>
         </nav>
       </header>
