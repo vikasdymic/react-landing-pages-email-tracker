@@ -15,7 +15,7 @@ class Modal extends Component {
                     <p>Thank you for expressing your interest in {this.props.children}! We are putting the finishing touches on {this.props.children} and you'll be the first to know when it's done.</p>
                     <form method="POST" action='/' name="emailresponse" data-netlify="true">
                         <input type="hidden" name="form-name" value="emailresponse" />
-                        <input className="input" type="email" placeholder="email"/>
+                        <input className="input" name='email' type="email" placeholder="email"/>
                         <button className='button small' type='submit' name='button'>Submit</button>
                     </form>
                     <button class='button medium' onClick={this.props.onClose}>Close</button>
